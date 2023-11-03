@@ -8,8 +8,7 @@ const port = 2001
 
 
 app.get("/", (req, res) => {
-    let myString = "Welcome to TodoList";
-let message = myString.charAt(0).toUpperCase() + myString.slice(1).toLowerCase();
+    let message = "Welcome to TodoList";
     res.json({
         message
     })
