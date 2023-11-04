@@ -18,11 +18,18 @@ const fnReaddatabase = ((req, res) => {
     const database = fs.readFileSync("./user.json", "utf-8")
     return JSON.parse(database)
 })
-fnReaddatabase()
 
 const fnWriteDataBase = (data) => {
     fs.writeFileSync("./user.json", JSON.stringify(data))
 }
+
+// get all users
+app.get("/user", (req, res) => {
+    const user = fnReaddatabase()
+    res.json({
+        user,
+    })
+})
 
 app.listen(port,() => {
     console.log("App Is Listening To", port);
