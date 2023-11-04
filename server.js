@@ -14,8 +14,15 @@ app.get("/", (req, res) => {
     })
 })
 
+const fnReaddatabase = ((req, res) => {
+    const database = fs.readFileSync("./user.json", "utf-8")
+    return JSON.parse(database)
+})
+fnReaddatabase()
 
-
+const fnWriteDataBase = (data) => {
+    fs.writeFileSync("./user.json", JSON.stringify(data))
+}
 app.listen(port,() => {
     console.log("App Is Listening To", port);
 })
