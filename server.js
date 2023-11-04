@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
 const fnReaddatabase = ((req, res) => {
     const database = fs.readFileSync("./user.json", "utf-8")
-    return JSON.parse(database)
+    return database
 })
 
 const fnWriteDataBase = (data) => {
@@ -28,6 +28,14 @@ app.get("/user", (req, res) => {
     const user = fnReaddatabase()
     res.json({
         user,
+    })
+})
+
+// 404 route
+app.get("*", (req, res) => {
+    const getRoute = req.originalUrl()
+    res.json({
+        message: `${getRoute} Not FOund`,
     })
 })
 
