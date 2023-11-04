@@ -23,6 +23,7 @@ fnReaddatabase()
 const fnWriteDataBase = (data) => {
     fs.writeFileSync("./user.json", JSON.stringify(data))
 }
+
 app.listen(port,() => {
     console.log("App Is Listening To", port);
 })
