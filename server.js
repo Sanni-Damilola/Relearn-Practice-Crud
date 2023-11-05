@@ -33,7 +33,7 @@ app.get("/user", (req, res) => {
 
 // get one user
 app.get("/user/:id", (req, res) => {
-    const user = fnReaddatabase()
+    const database = fs.readFileSync("./user.json", "utf-8")
     res.json({
         user,
     })
