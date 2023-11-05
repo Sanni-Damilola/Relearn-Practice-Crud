@@ -32,10 +32,10 @@ app.get("/user", (req, res) => {
 
 // get one user
 app.get("/user/:userID", (req, res) => {
-  const database = fnReaddatabase();
+  const database = fnReaddatabase()?.user;
   const { userID } = req.params;
-  console.log("user", userID);
-  console.log("db", database.user);
+  const getUser = database.find((user) => user.id === userID);
+  console.log("s", getUser);
 });
 
 // 404 route
