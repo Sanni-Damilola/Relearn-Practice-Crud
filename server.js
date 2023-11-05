@@ -32,9 +32,10 @@ app.get("/user", (req, res) => {
 
 // get one user
 app.get("/user/:userID", (req, res) => {
-  const database = fnReaddatabase()?.user;
-  const { userID } = req.params;
-  const getUser = database.find((user) => user.id === userID);
+  const database = fnReaddatabase();
+  let { userID } = req.params;
+  userID = parseInt(userID);
+  const getUser = database.user.find((user) => user.id === userID);
   console.log("s", getUser);
 });
 

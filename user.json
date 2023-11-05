@@ -7,6 +7,14 @@
       "Time": "10 AM",
       "Schedule": "Meeting",
       "Rest time": "1 hour"
+    },
+    {
+      "id": 2,
+      "name": "Dami",
+      "Date": "Monday",
+      "Time": "10 AM",
+      "Schedule": "Games",
+      "Rest time": "4 hour"
     }
   ]
 }
