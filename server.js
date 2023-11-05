@@ -33,10 +33,9 @@ app.get("/user", (req, res) => {
 
 // get one user
 app.get("/user/:id", (req, res) => {
-    const database = fs.readFileSync("./user.json", "utf-8")
-    res.json({
-        user,
-    })
+    const database = fnReaddatabase()
+    const {userID} = req.params
+    console.log("db", database.user);
 })
 
 // 404 route
