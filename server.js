@@ -31,6 +31,14 @@ app.get("/user", (req, res) => {
     })
 })
 
+// get one user
+app.get("/user", (req, res) => {
+    const user = fnReaddatabase()
+    res.json({
+        user,
+    })
+})
+
 // 404 route
 app.get("*", (req, res) => {
     const getRoute = req.originalUrl()
@@ -38,7 +46,6 @@ app.get("*", (req, res) => {
         message: `${getRoute} Not FOund`,
     })
 })
-
 app.listen(port,() => {
     console.log("App Is Listening To", port);
 })
