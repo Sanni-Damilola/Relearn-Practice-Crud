@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
 const fnReaddatabase = ((req, res) => {
     const database = fs.readFileSync("./user.json", "utf-8")
-    return database
+    return JSON.parse(database)
 })
 
 const fnWriteDataBase = (data) => {
@@ -32,7 +32,7 @@ app.get("/user", (req, res) => {
 })
 
 // get one user
-app.get("/user", (req, res) => {
+app.get("/user/:id", (req, res) => {
     const user = fnReaddatabase()
     res.json({
         user,

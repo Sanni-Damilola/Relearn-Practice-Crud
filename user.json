@@ -1,0 +1,12 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "Sanni",
+      "Date": "Monday",
+      "Time": "10 AM",
+      "Schedule": "Meeting",
+      "Rest time": "1 hour"
+    }
+  ]
+}
