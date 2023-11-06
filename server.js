@@ -64,8 +64,21 @@ app.post("/create", (req, res) => {
 
 // update user
 app.put("/update/:userId", (req, res) => {
-    const database = fnReaddatabase()
-})
+  const database = fnReaddatabase();
+  let { getUserId } = req.params;
+  getUserId = Number(getUserId);
+  const { body } = req;
+  if (!body) {
+    return res.status(400).json({
+      message: "Body is Required",
+    });
+  }
+  const getTheUser = database.user.findindex((user) => user.id === getUserId);
+  if (!getTheUser) {
+    console.log("yes");
+  }
+  console.log("here", database.user[getTheUser]);
+});
 
 // 404 route
 app.get("*", (req, res) => {
