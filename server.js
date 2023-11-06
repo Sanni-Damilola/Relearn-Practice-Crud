@@ -62,6 +62,11 @@ app.post("/create", (req, res) => {
   });
 });
 
+// update user
+app.put("/update/:userId", (req, res) => {
+    const database = fnReaddatabase()
+})
+
 // 404 route
 app.get("*", (req, res) => {
   const getRoute = req.originalUrl();
