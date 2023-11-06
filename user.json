@@ -1,14 +1,6 @@
 {
   "user": [
     {
-      "id": 1,
-      "name": "Latife",
-      "Date": "Monday",
-      "Time": "10 AM",
-      "Schedule": "Meeting",
-      "Rest time": "1 hour"
-    },
-    {
       "id": 2,
       "name": "Dami",
       "Date": "Monday",

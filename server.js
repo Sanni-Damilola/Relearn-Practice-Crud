@@ -91,6 +91,7 @@ app.delete("/delete/:id", (req, res) => {
   const database = fnReaddatabase();
   let { id } = req.params;
   id = Number(id);
+  const getTheUser = database.user.find((index) => index.id === id);
   if (getTheUser === -1) {
     return res.status(404).json({
       message: `This id: ${userId} does not exist`,
