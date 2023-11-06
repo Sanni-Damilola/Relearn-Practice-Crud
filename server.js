@@ -79,6 +79,11 @@ app.put("/update/:userId", (req, res) => {
       message: `This ID (${userId}) is not found`,
     });
   }
+  database.user[getTheUser] = { ...database.user[getTheUser], ...body };
+  fnWriteDataBase(database);
+  res.status(201).json({
+    message: "User Updated",
+  });
 });
 
 // 404 route
