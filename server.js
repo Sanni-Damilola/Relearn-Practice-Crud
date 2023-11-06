@@ -47,18 +47,18 @@ app.get("/user/:userID", (req, res) => {
 // post user
 app.post("/create", (req, res) => {
   const database = fnReaddatabase();
-  const { newUser } = req.body;
-  if (!newUser) {
+  const { body } = req;
+  if (!body) {
     return res.status(400).json({
       message: "Body is Required",
     });
   }
-  newUser.id = database.user.length + 1;
-  database.user.push(newUser);
+  body.id = database.user.length + 1;
+  database.user.push(body);
   fnWriteDataBase(database);
   res.status(200).json({
     message: "User Created",
-    data: newUser,
+    data: body,
   });
 });
 

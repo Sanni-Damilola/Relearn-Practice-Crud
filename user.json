@@ -15,6 +15,22 @@
       "Time": "10 AM",
       "Schedule": "Games",
       "Rest time": "4 hour"
+    },
+    {
+      "name": "Dennis",
+      "Date": "Monday",
+      "Time": "3 Am",
+      "Schedule": "Eat",
+      "Rest time": "2 hour",
+      "id": 3
+    },
+    {
+      "name": "Tola",
+      "Date": "Monday",
+      "Time": "5 Am",
+      "Schedule": "Cook",
+      "Rest time": "3 min",
+      "id": 4
     }
   ]
 }
