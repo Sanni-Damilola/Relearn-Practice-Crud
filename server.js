@@ -66,7 +66,7 @@ app.post("/create", (req, res) => {
 app.put("/update/:userId", (req, res) => {
   const database = fnReaddatabase();
   let { userId } = req.params;
-  getUserId = Number(getUserId);
+  userId = Number(userId);
   const { body } = req;
   if (!body) {
     return res.status(400).json({
@@ -74,7 +74,11 @@ app.put("/update/:userId", (req, res) => {
     });
   }
   const getTheUser = database.user.findIndex((user) => user.id === userId);
-  console.log("e", database.user[getTheUser]);
+  if (getTheUser === -1) {
+    return res.status(404).json({
+      message: `This ID (${userId}) is not found`,
+    });
+  }
 });
 
 // 404 route
