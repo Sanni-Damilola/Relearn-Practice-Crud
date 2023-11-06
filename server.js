@@ -86,6 +86,14 @@ app.put("/update/:userId", (req, res) => {
   });
 });
 
+// delete user
+app.delete("/delete/:userId", (req, res) => {
+
+  res.status(201).json({
+    message: "User Deleted",
+  });
+});
+
 // 404 route
 app.get("*", (req, res) => {
   const getRoute = req.originalUrl();
