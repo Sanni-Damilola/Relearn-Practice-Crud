@@ -87,23 +87,20 @@ app.put("/update/:userId", (req, res) => {
 });
 
 // delete a user
-app.delete("/user/:id", (req, res) => {
-  const database = readDatabase();
-  const userId = parseInt(req.params.id);
-  const index = database.user.findIndex((user) => user.id === userId);
-
-  if (index === -1) {
-    res.status(404).json({
+app.delete("/delete/:id", (req, res) => {
+  const database = fnReaddatabase();
+  let { id } = req.params;
+  id = Number(id);
+  if (getTheUser === -1) {
+    return res.status(404).json({
       message: `This id: ${userId} does not exist`,
     });
-  } else {
-    const deletedUser = database.user[index];
-    database.user.splice(index, 1);
-    writeDatabase(database);
-    res.status(200).json({
-      deletedData: deletedUser,
-    });
   }
+  database.user.splice(getTheUser, 1);
+  fnWriteDataBase(database);
+  res.status(200).json({
+    message: "User Deleted",
+  });
 });
 
 // 404 route
