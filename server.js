@@ -48,7 +48,7 @@ app.get("/user/:userID", (req, res) => {
 app.post("/create", (req, res) => {
   const database = fnReaddatabase();
   const { newUser } = req.body;
-  if (!req.body) {
+  if (!newUser) {
     return res.status(400).json({
       message: "Body is Required",
     });
