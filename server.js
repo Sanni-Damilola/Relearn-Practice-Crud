@@ -35,8 +35,13 @@ app.get("/user/:userID", (req, res) => {
   const database = fnReaddatabase();
   let { userID } = req.params;
   userID = parseInt(userID);
-  const getUser = database.user.find((user) => user.id === userID);
-  console.log("s", getUser);
+  const getUser = database?.user?.find((user) => user.id === userID);
+  if (!getUser) {
+    const data = { message: "User Not FOund" };
+    return res.status(404).json(data);
+  }
+  const data = { message: "Succesfully Gotten User", getUser };
+  res.status(200).json(data);
 });
 
 // 404 route
