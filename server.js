@@ -88,7 +88,10 @@ app.put("/update/:userId", (req, res) => {
 
 // delete user
 app.delete("/delete/:userId", (req, res) => {
-
+  const database = fnReaddatabase();
+  let { userId } = req.params;
+  const getTheUser = 
+    
   res.status(201).json({
     message: "User Deleted",
   });
