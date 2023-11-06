@@ -40,8 +40,26 @@ app.get("/user/:userID", (req, res) => {
     const data = { message: "User Not FOund" };
     return res.status(404).json(data);
   }
-  const data = { message: "Succesfully Gotten User", getUser };
-  res.status(200).json(data);
+  const data = { message: "Succesfully Gotten User", data: getUser };
+  res.status(201).json(data);
+});
+
+// post user
+app.post("/create", (req, res) => {
+  const database = fnReaddatabase();
+  const { newUser } = req.body;
+  if (!req.body) {
+    return res.status(400).json({
+      message: "Body is Required",
+    });
+  }
+  newUser.id = database.user.length + 1;
+  database.user.push(newUser);
+  fnWriteDataBase(database);
+  res.status(200).json({
+    message: "User Created",
+    data: newUser,
+  });
 });
 
 // 404 route
